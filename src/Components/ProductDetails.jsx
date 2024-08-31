@@ -37,6 +37,8 @@
 
 // export default ProductDetails
 
+import Button from "./Button";
+
 
 function ProductDetails(props) {
     let productCount = 0;
@@ -58,19 +60,15 @@ function ProductDetails(props) {
         return product
     }
 
-
-
     return (
         <div className="d-flex align-items-center justify-content-start mt-1">
             <h6 className="font-weight-bold my-2"
                 style={{ 'margin-right': '30px' }}
             >${props.price}</h6>
-            <button className="btn btn-primary mx-3"
-            > - </button>
+            <Button > - </Button>
             <span style={{ padding: '9px 14px', 'fontSize': 13 }}>{displayFormatedProductCount()}</span>
-            <button className="btn btn-primary"> + </button>
+            <Button> + </Button>
             <span className={bgClass}>{props.isAvailable ? 'Available' : 'UAvailable'}</span>
-            {props.children}  
         </div>
     )
 }

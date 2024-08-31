@@ -22,7 +22,6 @@ function Products(props) {
           price={props.price}
           isAvailable={props.isAvailable}
         >     
-          <h1>Product Details</h1>
         </ProductDetails>
 
        
