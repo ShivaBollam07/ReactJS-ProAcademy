@@ -70,6 +70,7 @@ function ProductDetails(props) {
             <span style={{ padding: '9px 14px', 'fontSize': 13 }}>{displayFormatedProductCount()}</span>
             <button className="btn btn-primary"> + </button>
             <span className={bgClass}>{props.isAvailable ? 'Available' : 'UAvailable'}</span>
+            {props.children}  
         </div>
     )
 }

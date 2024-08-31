@@ -18,17 +18,16 @@ function Products(props) {
           width="200"
           className="ml-lg-5 order-1 order-lg-2"
         />
-        <div className="d-flex align-items-center justify-content-start mt-1">
-          <h6 className="font-weight-bold my-2">${props.price}</h6>
-          <span className="text-muted font-weight-normal font-italic">
-          </span>
-          <ProductDetails 
-          isAvailable={props.isAvailable}
+        <ProductDetails
           price={props.price}
-          ></ProductDetails>
-        </div>
+          isAvailable={props.isAvailable}
+        >     
+          <h1>Product Details</h1>
+        </ProductDetails>
+
        
       </div>
+      
       
     </li>
   );
