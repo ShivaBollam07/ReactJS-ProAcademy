@@ -1,4 +1,4 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
 import ProductDetails from './ProductDetails';
 
 function Products({ name, desc, image, price, isAvailable }) {

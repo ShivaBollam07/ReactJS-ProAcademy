@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+/* eslint-disable react/prop-types */
 import Button from './Button';
+import { useState } from 'react';
 
 function ProductDetails({ price, isAvailable }) {
     
