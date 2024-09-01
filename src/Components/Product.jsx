@@ -1,33 +1,24 @@
-/* eslint-disable react/prop-types */
+import React from 'react';
 import ProductDetails from './ProductDetails';
 
-function Products(props) {
+function Products({ name, desc, image, price, isAvailable }) {
   return (
     <li className="list-group-item">
-      <div className="media align-items-lg-center flex-column flex-lg-row p-3 d-flex">
-        <div className="media-body order-2 order-lg-1">
-        
-          <h5 className="mt-0 font-weight-bold mb-2">{props.name}</h5>
-
-          <p className="font-italic text-muted mb-0 small">{props.desc}</p>
+      <div className="media d-flex p-3 align-items-start">
+        <div className="media-body">
+          <h5 className="mt-0 font-weight-bold mb-2">{name}</h5>
+          <p className="font-italic text-muted mb-0 small">{desc}</p>
+          
+          <ProductDetails price={price} isAvailable={isAvailable} />
         </div>
         
-                <img
-          src={props.image}
-          alt={`${props.name} image`}
+        <img
+          src={image}
+          alt={`${name} image`}
           width="200"
-          className="ml-lg-5 order-1 order-lg-2"
+          className="ml-lg-3"
         />
-        <ProductDetails
-          price={props.price}
-          isAvailable={props.isAvailable}
-        >     
-        </ProductDetails>
-
-       
       </div>
-      
-      
     </li>
   );
 }

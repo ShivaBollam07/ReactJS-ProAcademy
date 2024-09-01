@@ -1,7 +1,12 @@
+// function buttonClickHandler(){
+//     console.log('Button clicked')
+// }
+
 function Button(operation) {
     return (
         <button
-            className="btn btn-primary mx-4"
+        // onClick={buttonClickHandler}
+        className="btn btn-primary mx-4"
         >{operation.children}</button>
     )
 }
