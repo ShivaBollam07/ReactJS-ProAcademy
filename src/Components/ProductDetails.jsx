@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Button from './Button';
 
 function ProductDetails({ price, isAvailable }) {
-    let ProductCount = 0;
+    
+    let [ProductCount, setProductCount] = useState(0);
     const bgClass = isAvailable
         ? 'badge-margin-left-240 badge bg-success'
         : 'badge-margin-left-240 badge bg-danger';
@@ -21,13 +22,11 @@ function ProductDetails({ price, isAvailable }) {
     //   };
 
     let decrementProductCount = function () {
-        ProductCount--;
-        console.log(ProductCount);
+        setProductCount(--ProductCount);
     }
 
     let incrementProductCount = function () {
-        ProductCount++;
-        console.log(ProductCount);
+        setProductCount(++ProductCount);
     }
 
 
