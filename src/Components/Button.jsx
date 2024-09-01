@@ -6,6 +6,7 @@ function Button(operation) {
     return (
         <button
         // onClick={buttonClickHandler}
+        onClick={operation.eventHandler}
         className="btn btn-primary mx-4"
         >{operation.children}</button>
     )
