@@ -1,23 +1,31 @@
+import React, {useState} from 'react'
+
 function ProductForm(){
+    let [productName, setProductName] = useState('');
+    let [productPrice, setProductPrice] = useState('');
+    let [productDescription, setProductDescription] = useState('');
+    let [productAvailability, setProductAvailability] = useState('');
+    let [productImage, setProductImage] = useState('');
+
 
     function nameInputHandler(event) {
-        console.log(event.target.value);
+        setProductName(event.target.value);
     }
 
     function ProductPriceHandler(event) {
-        console.log(event.target.value);
+        setProductPrice(event.target.value);
     }
 
     function ProductdescriptionHandler(event) {
-        console.log(event.target.value);
+        setProductDescription(event.target.value);
     }
 
     function ProductAvailabilityHandler(event) {
-        console.log(event.target.value);
+        setProductAvailability(event.target.checked);
     }
 
     function FileInputHandler(event) {
-        console.log(event.target.value);
+        setProductImage(event.target.value);
     }
 
     
