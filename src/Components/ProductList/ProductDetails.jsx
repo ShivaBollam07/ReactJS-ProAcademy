@@ -31,8 +31,6 @@ function ProductDetails({ price, isAvailable }) {
     }
 
 
-
-
     return (
         <div
             //   onMouseEnter={buttonHoverHandler}
