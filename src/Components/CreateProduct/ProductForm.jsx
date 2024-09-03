@@ -1,94 +1,66 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react'
 
-function ProductForm() {
-    let [productName, setProductName] = useState('');
-    let [productPrice, setProductPrice] = useState('');
-    let [productDescription, setProductDescription] = useState('');
-    let [productAvailability, setProductAvailability] = useState(false);
-    let [productImageURL, setProductImageURL] = useState('');
-    // let [userInput, setUserInput] = useState({
-    //     productName: '',
-    //     productPrice: '',
-    //     productDescription: '',
-    //     productAvailability: '',
-    //     productImageURL: ''
-    // })
+function ProductForm(props) {
+    // State variables for product details
+    let [pName, setpName] = useState('');
+    let [price, setprice] = useState('');
+    let [desc, setdesc] = useState('');
+    let [isAvailable, setisAvailable] = useState(false);
+    let [image, setimage] = useState('');
 
+    // Event handlers for form inputs
     function nameInputHandler(event) {
-        //     setUserInput({
-        //         ...userInput,
-        //         productName: event.target.value
-        //     })
-        //    return((prevState) => {
-        //         return {
-        //             ...prevState,
-        //             productName: event.target.value
-        //         }
-        //    })
-        setProductName(event.target.value)
+        setpName(event.target.value)
     }
 
-    function ProductPriceHandler(event) {
-        // setUserInput({
-        //     ...userInput,
-        //     productPrice: event.target.value
-        // })  
-        setProductPrice(event.target.value)
+    function priceHandler(event) {
+        setprice(event.target.value)
     }
 
-    function ProductdescriptionHandler(event) {
-        // setUserInput({
-        //     ...userInput,
-        //     productDescription: event.target.value
-        // })
-        setProductDescription(event.target.value)
-
+    function descHandler(event) {
+        setdesc(event.target.value)
     }
 
-    function ProductAvailabilityHandler(event) {
-        // setUserInput({
-        //     ...userInput,
-        //     productAvailability: event.target.value
-        // })
-        setProductAvailability(event.target.checked)
+    function isAvailableHandler(event) {
+        setisAvailable(event.target.checked)
     }
 
     function FileInputHandler(event) {
-        // setUserInput({
-        //     ...userInput,
-        //     productImageURL: event.target.value
-        // })
-        setProductImageURL(event.target.value)
+        setimage(event.target.value)
     }
 
+    // Form submission handler
     function createProductHandler(event) {
         event.preventDefault();
         let product = {
-            productName: productName,
-            productPrice: productPrice,
-            productDescription: productDescription,
-            productAvailability: Boolean(productAvailability),
-            productImageURL: productImageURL
+            pName: pName,
+            price: price,
+            desc: desc,
+            isAvailable: Boolean(isAvailable),
+            image: image
         }
 
-        setProductName('');
-        setProductPrice('');
-        setProductDescription('');
-        setProductAvailability(false);
-        setProductImageURL('');
+        // Clear the form
+        setpName('');
+        setprice('');
+        setdesc('');
+        setisAvailable(false);
+        setimage('');
 
-        console.log(product);
+        // Call the parent's function to handle the new product
+        props.CreateProduct(product);
     }
-
 
     return (
         <form className="row g-3" onSubmit={createProductHandler}>
+            {/* Form fields for product details */}
             <div className="col-md-6">
                 <label htmlFor="name">Product Name</label>
                 <input type="text"
                     className="form-control"
                     id="name"
-                    value={productName}
+                    value={pName}
                     placeholder="Product Name"
                     onChange={nameInputHandler}
                 />
@@ -99,8 +71,8 @@ function ProductForm() {
                     min="0.01" step="0.01"
                     className="form-control"
                     id="price"
-                    value={productPrice}
-                    onChange={ProductPriceHandler}
+                    value={price}
+                    onChange={priceHandler}
                     placeholder="Product Price" />
             </div>
             <div className="form-group">
@@ -108,16 +80,15 @@ function ProductForm() {
                 <input type="text"
                     className="form-control"
                     id="description"
-                    value={productDescription}
-                    onChange={ProductdescriptionHandler}
-
+                    value={desc}
+                    onChange={descHandler}
                     placeholder="Product Description" />
             </div>
 
             <div className="form-check form-switch">
                 <input className="form-check-input" type="checkbox"
-                    value={productAvailability}
-                    onChange={ProductAvailabilityHandler}
+                    value={isAvailable}
+                    onChange={isAvailableHandler}
                     role="switch" id="isAvailable" />
                 <label className="form-check-label" htmlFor="isAvailable">Is product available in stock?</label>
             </div>
@@ -126,7 +97,7 @@ function ProductForm() {
                 <label htmlFor="select-image">Select product image</label>
                 <input type="file" className="form-control" id="select-image"
                     onChange={FileInputHandler}
-                    value={productImageURL} />
+                    value={image} />
             </div>
             <button type="submit" className="btn btn-primary">Add Product</button>
         </form>
