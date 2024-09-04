@@ -1,12 +1,6 @@
 /* eslint-disable react/prop-types */
 import Products from './Products';
-import image1 from '../../assets/fresh-milk.png'
-import image2 from '../../assets/cottage-cheese.png'
-import image3 from '../../assets/brocoli.png'
-import image4 from '../../assets/oranges.png'
-import image5 from '../../assets/olive-oil.png'
-import { useState } from 'react';
-
+ 
 
 
 function ProductList(props) {
