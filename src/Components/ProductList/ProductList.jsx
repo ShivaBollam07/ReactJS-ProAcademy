@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types */
 import Products from './Products';
- 
-
 
 function ProductList(props) {
   console.log(props);
