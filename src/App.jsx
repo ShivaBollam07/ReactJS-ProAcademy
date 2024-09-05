@@ -62,13 +62,20 @@ function App() {
     setNewProductList([product, ...newProductList])
   }
 
+  function onFilterValueSelected(filterValue) {
+    console.log('Filter value selected')
+  }
+
   return (
     <div className='row'>
       <div className='col-lg-8 mx-auto'>
         <CreateProduct
           CreateProduct={createProduct}
         />
-        <FilterProduct />
+        <FilterProduct 
+        filterValueSelected={onFilterValueSelected}
+        
+        />
         <ProductList
           newProductList={newProductList}
         />

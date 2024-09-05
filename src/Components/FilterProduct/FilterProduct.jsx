@@ -1,10 +1,11 @@
 import './FilterProduct.css';
 
-function onFilterValueChange(event){
-    console.log(event.target.value);
-}
+let FilterProduct = (props) => {
+    function onFilterValueChange(event) {
+        console.log(event.target.value);
+        props.onFilterValueSelected(event.target.value);
+    }
 
-let FilterProduct = () => {
     return (<div className="filter-area">
         <select name="isAvailable"
             onChange={onFilterValueChange}
