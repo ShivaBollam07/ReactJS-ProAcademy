@@ -3,6 +3,7 @@ import './FilterProduct.css';
 let FilterProduct = (props) => {
     function onFilterValueChange(event) {
         console.log(event.target.value);
+        // eslint-disable-next-line react/prop-types
         props.onFilterValueSelected(event.target.value);
     }
 

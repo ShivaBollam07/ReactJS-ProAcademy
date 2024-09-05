@@ -62,6 +62,7 @@ function App() {
     setNewProductList([product, ...newProductList])
   }
 
+  // eslint-disable-next-line no-unused-vars
   function onFilterValueSelected(filterValue) {
     console.log('Filter value selected')
   }
