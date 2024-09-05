@@ -8,10 +8,9 @@ function Products({ name, description, image, price, isAvailable }) {
         <div className="media-body">
           <h5 className="mt-0 font-weight-bold mb-2">{name}</h5>
           <p className="font-italic text-muted mb-0 small">{description}</p>
-          
           <ProductDetails price={price} isAvailable={isAvailable} />
         </div>
-        
+
         <img
           src={image}
           alt={`${name} image`}

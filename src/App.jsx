@@ -7,6 +7,7 @@ import image2 from './assets/cottage-cheese.png'
 import image3 from './assets/brocoli.png'
 import image4 from './assets/oranges.png'
 import image5 from './assets/olive-oil.png'
+import FilterProduct from './Components/FilterProduct/FilterProduct'
 
 let products = [
   {
@@ -57,17 +58,21 @@ function App() {
 
 
   function createProduct(product) {
+    product.pID = newProductList.length + 1;
     setNewProductList([product, ...newProductList])
   }
 
   return (
-    <div>
-      <CreateProduct
-        CreateProduct={createProduct}
-      />
-      <ProductList
-        newProductList={newProductList}
-       />
+    <div className='row'>
+      <div className='col-lg-8 mx-auto'>
+        <CreateProduct
+          CreateProduct={createProduct}
+        />
+        <FilterProduct />
+        <ProductList
+          newProductList={newProductList}
+        />
+      </div>
     </div>
   )
 }
