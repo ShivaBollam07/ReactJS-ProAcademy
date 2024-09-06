@@ -55,6 +55,19 @@ let products = [
 function App() {
 
   let [newProductList, setNewProductList] = useState(products)
+  // eslint-disable-next-line no-unused-vars
+  let [filterValue, setFilterValue] = useState('all');
+
+  let filteredProducts = newProductList.filter((product) => {
+    if (filterValue === 'available') {
+      return product.isAvailable === true;
+    } else if (filterValue === 'unavailable') {
+      return product.isAvailable === false;
+    } else {
+      return product; // This will return all products if filterValue is 'all'
+    }
+  });
+  
 
 
   function createProduct(product) {
@@ -62,9 +75,8 @@ function App() {
     setNewProductList([product, ...newProductList])
   }
 
-  // eslint-disable-next-line no-unused-vars
   function onFilterValueSelected(filterValue) {
-    console.log('Filter value selected')
+    setFilterValue(filterValue);
   }
 
   return (
@@ -73,12 +85,12 @@ function App() {
         <CreateProduct
           CreateProduct={createProduct}
         />
-        <FilterProduct 
-        filterValueSelected={onFilterValueSelected}
-        
+        <FilterProduct
+          filterValueSelected={onFilterValueSelected}
+
         />
         <ProductList
-          newProductList={newProductList}
+          newProductList={filteredProducts}
         />
       </div>
     </div>
