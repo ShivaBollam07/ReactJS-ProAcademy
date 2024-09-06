@@ -3,6 +3,10 @@ import Products from './Products';
 
 
 function ProductList(props) {
+  if(props.newProductList.length === 0) {
+    return <h1>No Products Available</h1>
+  } 
+  else {
   return (
 
     <ul className="list-group shadow">
@@ -22,6 +26,7 @@ function ProductList(props) {
     </ul>
 
   );
+}
 }
 
 

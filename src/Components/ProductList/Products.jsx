@@ -3,7 +3,9 @@ import ProductDetails from './ProductDetails';
 
 function Products({ name, description, image, price, isAvailable }) {
   return (
-    <li className="list-group-item">
+    <li className="list-group-item" 
+    style={{backgroundColor : isAvailable ? 'white' : 'lightgray'}}
+    >
       <div className="media d-flex p-3 align-items-start">
         <div className="media-body">
           <h5 className="mt-0 font-weight-bold mb-2">{name}</h5>

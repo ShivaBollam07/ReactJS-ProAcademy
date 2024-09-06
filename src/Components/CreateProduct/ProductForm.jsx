@@ -1,33 +1,31 @@
-/* eslint-disable react/prop-types */
-import { useState } from 'react'
+import { useState } from 'react';
 
 function ProductForm(props) {
-    // State variables for product details
     let [pName, setpName] = useState('');
     let [price, setprice] = useState('');
     let [desc, setdesc] = useState('');
     let [isAvailable, setisAvailable] = useState(false);
-    let [image, setimage] = useState('');
+    let [image, setimage] = useState(null); // store file object
 
     // Event handlers for form inputs
     function nameInputHandler(event) {
-        setpName(event.target.value)
+        setpName(event.target.value);
     }
 
     function priceHandler(event) {
-        setprice(event.target.value)
+        setprice(event.target.value);
     }
 
     function descHandler(event) {
-        setdesc(event.target.value)
+        setdesc(event.target.value);
     }
 
     function isAvailableHandler(event) {
-        setisAvailable(event.target.checked)
+        setisAvailable(event.target.checked);
     }
 
     function FileInputHandler(event) {
-        setimage(event.target.value)
+        setimage(event.target.files[0]); // store the file object
     }
 
     // Form submission handler
@@ -37,19 +35,19 @@ function ProductForm(props) {
             pName: pName,
             price: price,
             desc: desc,
-            isAvailable: Boolean(isAvailable),
+            isAvailable: isAvailable,
             image: image
-        }
+        };
 
-        // Clear the form
+        // Clear the form after submission
         setpName('');
         setprice('');
         setdesc('');
         setisAvailable(false);
-        setimage('');
+        setimage(null);
 
         // Call the parent's function to handle the new product
-        props.CreateProduct(product);
+        props.onCreateProduct(product);
     }
 
     return (
@@ -87,7 +85,7 @@ function ProductForm(props) {
 
             <div className="form-check form-switch">
                 <input className="form-check-input" type="checkbox"
-                    value={isAvailable}
+                    checked={isAvailable}
                     onChange={isAvailableHandler}
                     role="switch" id="isAvailable" />
                 <label className="form-check-label" htmlFor="isAvailable">Is product available in stock?</label>
@@ -97,11 +95,11 @@ function ProductForm(props) {
                 <label htmlFor="select-image">Select product image</label>
                 <input type="file" className="form-control" id="select-image"
                     onChange={FileInputHandler}
-                    value={image} />
+                />
             </div>
             <button type="submit" className="btn btn-primary">Add Product</button>
         </form>
-    )
+    );
 }
 
 export default ProductForm;

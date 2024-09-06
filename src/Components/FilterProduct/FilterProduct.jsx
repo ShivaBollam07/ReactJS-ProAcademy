@@ -16,6 +16,6 @@ let FilterProduct = (props) => {
         </select>
     </div>
     );
-};
+}; 
 
 export default FilterProduct;
